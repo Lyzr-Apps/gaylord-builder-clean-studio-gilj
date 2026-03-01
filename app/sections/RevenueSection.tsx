@@ -233,6 +233,21 @@ export default function RevenueSection({ showSample }: RevenueSectionProps) {
                   <h3 className="font-serif text-base font-light tracking-wider text-foreground">Payment Collection Details</h3>
                   <p className="text-xs text-muted-foreground tracking-wider font-light mt-1">Wire transfer information for collecting application revenue</p>
                 </div>
+                <div className="space-y-1 mb-4">
+                  <p className="text-[10px] tracking-[0.2em] uppercase text-muted-foreground font-light">Account Holder</p>
+                  <div className="flex items-center gap-2">
+                    <code className="text-sm tracking-wider font-light text-foreground bg-secondary px-3 py-2 border border-border flex-1 font-mono select-all">
+                      Mr Makoko Gaylord
+                    </code>
+                    <button
+                      onClick={() => copyToClipboard('Mr Makoko Gaylord', 'holder')}
+                      className="p-2 text-muted-foreground hover:text-primary transition-colors flex-shrink-0"
+                      title="Copy Account Holder"
+                    >
+                      {copiedField === 'holder' ? <FiCheckCircle size={16} className="text-emerald-600" /> : <FiCopy size={16} />}
+                    </button>
+                  </div>
+                </div>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div className="space-y-1">
                     <p className="text-[10px] tracking-[0.2em] uppercase text-muted-foreground font-light">IBAN</p>
@@ -362,6 +377,21 @@ export default function RevenueSection({ showSample }: RevenueSectionProps) {
               <div>
                 <h3 className="font-serif text-base font-light tracking-wider text-foreground">Payment Collection Details</h3>
                 <p className="text-xs text-muted-foreground tracking-wider font-light mt-1">Wire transfer information for collecting application revenue</p>
+              </div>
+              <div className="space-y-1 mb-4">
+                <p className="text-[10px] tracking-[0.2em] uppercase text-muted-foreground font-light">Account Holder</p>
+                <div className="flex items-center gap-2">
+                  <code className="text-sm tracking-wider font-light text-foreground bg-secondary px-3 py-2 border border-border flex-1 font-mono select-all">
+                    Mr Makoko Gaylord
+                  </code>
+                  <button
+                    onClick={() => copyToClipboard('Mr Makoko Gaylord', 'holder')}
+                    className="p-2 text-muted-foreground hover:text-primary transition-colors flex-shrink-0"
+                    title="Copy Account Holder"
+                  >
+                    {copiedField === 'holder' ? <FiCheckCircle size={16} className="text-emerald-600" /> : <FiCopy size={16} />}
+                  </button>
+                </div>
               </div>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div className="space-y-1">
