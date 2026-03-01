@@ -1,8 +1,8 @@
 'use client'
 
-import { FiGrid, FiHome, FiUsers, FiBriefcase } from 'react-icons/fi'
+import { FiGrid, FiHome, FiUsers, FiBriefcase, FiDollarSign } from 'react-icons/fi'
 
-export type ActivePage = 'dashboard' | 'properties' | 'leads' | 'projects'
+export type ActivePage = 'dashboard' | 'properties' | 'leads' | 'projects' | 'revenue'
 
 interface SidebarProps {
   activePage: ActivePage
@@ -14,6 +14,7 @@ const navItems: { id: ActivePage; label: string; icon: React.ReactNode }[] = [
   { id: 'properties', label: 'Properties', icon: <FiHome size={18} /> },
   { id: 'leads', label: 'Leads', icon: <FiUsers size={18} /> },
   { id: 'projects', label: 'Projects', icon: <FiBriefcase size={18} /> },
+  { id: 'revenue', label: 'Revenue', icon: <FiDollarSign size={18} /> },
 ]
 
 export default function Sidebar({ activePage, onNavigate }: SidebarProps) {

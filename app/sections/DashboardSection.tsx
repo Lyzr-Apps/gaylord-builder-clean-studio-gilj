@@ -7,7 +7,7 @@ import { Button } from '@/components/ui/button'
 import { Progress } from '@/components/ui/progress'
 
 interface DashboardSectionProps {
-  onNavigate: (page: 'leads' | 'projects') => void
+  onNavigate: (page: 'leads' | 'projects' | 'revenue') => void
   showSample: boolean
 }
 
@@ -145,6 +145,9 @@ export default function DashboardSection({ onNavigate, showSample }: DashboardSe
         </Button>
         <Button variant="outline" className="tracking-wider font-light text-sm" onClick={() => onNavigate('projects')}>
           <FiArrowRight size={14} className="mr-2" /> View All Projects
+        </Button>
+        <Button variant="outline" className="tracking-wider font-light text-sm" onClick={() => onNavigate('revenue')}>
+          <FiDollarSign size={14} className="mr-2" /> Revenue Tracking
         </Button>
       </div>
     </div>
