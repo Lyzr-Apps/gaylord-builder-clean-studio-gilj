@@ -11,6 +11,7 @@ import PropertiesSection from './sections/PropertiesSection'
 import LeadsSection from './sections/LeadsSection'
 import ProjectsSection from './sections/ProjectsSection'
 import RevenueSection from './sections/RevenueSection'
+import RssSection from './sections/RssSection'
 
 const AGENTS = [
   { id: '69a492b115a7bc6aa5e885e4', name: 'Client Inquiry', purpose: 'Property questions and availability' },
@@ -95,6 +96,9 @@ export default function Page() {
             )}
             {activePage === 'revenue' && (
               <RevenueSection showSample={showSample} />
+            )}
+            {activePage === 'rss' && (
+              <RssSection showSample={showSample} />
             )}
           </main>
 
