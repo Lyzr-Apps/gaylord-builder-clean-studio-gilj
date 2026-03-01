@@ -1,0 +1,28 @@
+{
+  "agent_name": "Client Inquiry Agent",
+  "agent_id": "69a492b115a7bc6aa5e885e4",
+  "description": "Answers potential client questions about luxury villas, buildings, pricing, amenities, availability, and company information using the property knowledge base",
+  "agent_type": "json",
+  "accessor": "result",
+  "auto_generated": true,
+  "response_schema": {
+    "response_text": "string",
+    "suggested_properties": [
+      {
+        "name": "string",
+        "relevance": "string"
+      }
+    ],
+    "follow_up_question": "string"
+  },
+  "example_response": {
+    "response_text": "The agent's response to the client inquiry",
+    "suggested_properties": [
+      {
+        "name": "Property name",
+        "relevance": "Why this property is relevant to the query"
+      }
+    ],
+    "follow_up_question": "A suggested follow-up question to keep engagement"
+  }
+}

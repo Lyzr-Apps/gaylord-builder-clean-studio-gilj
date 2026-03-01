@@ -1,0 +1,92 @@
+{
+  "agent_name": "Project Report Agent",
+  "agent_id": "69a492b2ad5175ca488a2a20",
+  "description": "Generates structured construction progress reports from project milestone data including timeline status, budget tracking, and risk highlights",
+  "agent_type": "json",
+  "accessor": "result",
+  "auto_generated": true,
+  "response_schema": {
+    "report_title": "string",
+    "project_overview": {
+      "project_name": "string",
+      "completion_percentage": "string",
+      "budget_utilization": "string",
+      "days_remaining": "string",
+      "overall_health": "string"
+    },
+    "milestone_updates": [
+      {
+        "milestone": "string",
+        "status": "string",
+        "notes": "string"
+      }
+    ],
+    "budget_analysis": {
+      "allocated": "string",
+      "spent": "string",
+      "remaining": "string",
+      "projection": "string"
+    },
+    "timeline_assessment": "string",
+    "key_accomplishments": [
+      "string"
+    ],
+    "risk_factors": [
+      {
+        "risk": "string",
+        "severity": "string",
+        "mitigation": "string"
+      }
+    ],
+    "recommendations": [
+      "string"
+    ],
+    "summary": "string"
+  },
+  "example_response": {
+    "report_title": "Title of the report",
+    "project_overview": {
+      "project_name": "Name of the project",
+      "completion_percentage": "Percentage of project completion",
+      "budget_utilization": "Budget utilization percentage",
+      "days_remaining": "Days remaining until completion",
+      "overall_health": "Green, Yellow, or Red"
+    },
+    "milestone_updates": [
+      {
+        "milestone": "Milestone name",
+        "status": "Completed, In-Progress, or Upcoming",
+        "notes": "Additional notes"
+      }
+    ],
+    "budget_analysis": {
+      "allocated": "Total allocated budget",
+      "spent": "Amount spent",
+      "remaining": "Remaining budget",
+      "projection": "Budget projection"
+    },
+    "timeline_assessment": "Timeline status assessment",
+    "key_accomplishments": [
+      "sample string"
+    ],
+    "risk_factors": [
+      {
+        "risk": "Risk description",
+        "severity": "High, Medium, or Low",
+        "mitigation": "Mitigation strategy"
+      }
+    ],
+    "recommendations": [
+      "sample string"
+    ],
+    "summary": "Overall report summary"
+  },
+  "has_module_outputs": true,
+  "module_outputs_example": {
+    "artifact_files": [
+      {
+        "file_url": "https://example.com/file.pdf"
+      }
+    ]
+  }
+}

@@ -1,0 +1,72 @@
+{
+  "agent_name": "Proposal Generator Agent",
+  "agent_id": "69a492b256b99c8e0e6ce77f",
+  "description": "Drafts professional luxury property proposals incorporating property specs, pricing, client preferences, and company branding narrative",
+  "agent_type": "json",
+  "accessor": "result",
+  "auto_generated": true,
+  "response_schema": {
+    "proposal_title": "string",
+    "client_greeting": "string",
+    "executive_summary": "string",
+    "property_details": {
+      "name": "string",
+      "location": "string",
+      "type": "string",
+      "size_sqft": "string",
+      "bedrooms": "string",
+      "bathrooms": "string",
+      "price_range": "string",
+      "key_amenities": [
+        "string"
+      ]
+    },
+    "unique_selling_points": [
+      "string"
+    ],
+    "customization_options": [
+      "string"
+    ],
+    "pricing_note": "string",
+    "next_steps": [
+      "string"
+    ],
+    "closing_statement": "string"
+  },
+  "example_response": {
+    "proposal_title": "Title of the proposal",
+    "client_greeting": "Personalized greeting for the client",
+    "executive_summary": "Executive summary of the recommended property",
+    "property_details": {
+      "name": "Property name",
+      "location": "Property location",
+      "type": "Property type",
+      "size_sqft": "Size in square feet",
+      "bedrooms": "Number of bedrooms",
+      "bathrooms": "Number of bathrooms",
+      "price_range": "Price range",
+      "key_amenities": [
+        "sample string"
+      ]
+    },
+    "unique_selling_points": [
+      "sample string"
+    ],
+    "customization_options": [
+      "sample string"
+    ],
+    "pricing_note": "Pricing disclaimer and notes",
+    "next_steps": [
+      "sample string"
+    ],
+    "closing_statement": "Closing statement for the proposal"
+  },
+  "has_module_outputs": true,
+  "module_outputs_example": {
+    "artifact_files": [
+      {
+        "file_url": "https://example.com/file.pdf"
+      }
+    ]
+  }
+}

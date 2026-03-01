@@ -1,0 +1,46 @@
+{
+  "name": "Gaylord.M Builder",
+  "description": "Luxury real estate command center with client inquiry handling, lead qualification, proposal generation, and project reporting",
+  "nodes": [
+    {
+      "id": "input_node",
+      "type": "Input",
+      "label": "User Input",
+      "nodeCategory": "input"
+    },
+    {
+      "id": "client_inquiry_agent",
+      "type": "Agent",
+      "label": "Client Inquiry Agent",
+      "nodeCategory": "agent",
+      "agent_id": "69a492b115a7bc6aa5e885e4"
+    },
+    {
+      "id": "lead_qualifier_agent",
+      "type": "Agent",
+      "label": "Lead Qualifier Agent",
+      "nodeCategory": "agent",
+      "agent_id": "69a492b17447fbb48963edc8"
+    },
+    {
+      "id": "proposal_generator_agent",
+      "type": "Agent",
+      "label": "Proposal Generator Agent",
+      "nodeCategory": "agent",
+      "agent_id": "69a492b256b99c8e0e6ce77f"
+    },
+    {
+      "id": "project_report_agent",
+      "type": "Agent",
+      "label": "Project Report Agent",
+      "nodeCategory": "agent",
+      "agent_id": "69a492b2ad5175ca488a2a20"
+    }
+  ],
+  "edges": [
+    { "source": "input_node", "target": "client_inquiry_agent" },
+    { "source": "input_node", "target": "lead_qualifier_agent" },
+    { "source": "input_node", "target": "proposal_generator_agent" },
+    { "source": "input_node", "target": "project_report_agent" }
+  ]
+}

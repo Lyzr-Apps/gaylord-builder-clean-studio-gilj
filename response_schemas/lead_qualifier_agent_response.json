@@ -1,0 +1,40 @@
+{
+  "agent_name": "Lead Qualifier Agent",
+  "agent_id": "69a492b17447fbb48963edc8",
+  "description": "Analyzes lead details (budget, property interest, source, timeline) and generates a qualification score with recommended sales actions",
+  "agent_type": "json",
+  "accessor": "result",
+  "auto_generated": true,
+  "response_schema": {
+    "qualification_score": "number",
+    "category": "string",
+    "score_breakdown": {
+      "budget_alignment": "number",
+      "timeline_urgency": "number",
+      "interest_specificity": "number",
+      "source_quality": "number",
+      "engagement_signals": "number"
+    },
+    "summary": "string",
+    "recommended_actions": [
+      "string"
+    ],
+    "priority_level": "string"
+  },
+  "example_response": {
+    "qualification_score": 0,
+    "category": "Hot, Warm, or Cold",
+    "score_breakdown": {
+      "budget_alignment": 0,
+      "timeline_urgency": 0,
+      "interest_specificity": 0,
+      "source_quality": 0,
+      "engagement_signals": 0
+    },
+    "summary": "Brief qualification summary",
+    "recommended_actions": [
+      "sample string"
+    ],
+    "priority_level": "Immediate, This Week, This Month, or Low Priority"
+  }
+}

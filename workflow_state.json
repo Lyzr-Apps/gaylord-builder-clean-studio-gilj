@@ -1,0 +1,63 @@
+{
+  "app_name": "Gaylord.M Builder",
+  "agents": {
+    "client_inquiry_agent": {
+      "agent_id": "69a492b115a7bc6aa5e885e4",
+      "name": "Client Inquiry Agent",
+      "description": "Answers potential client questions about luxury villas, buildings, pricing, amenities, availability, and company information",
+      "model": "gpt-4.1",
+      "provider": "openai",
+      "temperature": 0.4,
+      "top_p": 0.95,
+      "capabilities": {
+        "image_output": false,
+        "voice": false,
+        "file_output": false
+      }
+    },
+    "lead_qualifier_agent": {
+      "agent_id": "69a492b17447fbb48963edc8",
+      "name": "Lead Qualifier Agent",
+      "description": "Analyzes lead details and generates a qualification score with recommended sales actions",
+      "model": "gpt-4.1",
+      "provider": "openai",
+      "temperature": 0.3,
+      "top_p": 1,
+      "capabilities": {
+        "image_output": false,
+        "voice": false,
+        "file_output": false
+      }
+    },
+    "proposal_generator_agent": {
+      "agent_id": "69a492b256b99c8e0e6ce77f",
+      "name": "Proposal Generator Agent",
+      "description": "Drafts professional luxury property proposals with property specs, pricing, and branding",
+      "model": "gpt-4.1",
+      "provider": "openai",
+      "temperature": 0.6,
+      "top_p": 0.95,
+      "capabilities": {
+        "image_output": false,
+        "voice": false,
+        "file_output": true
+      }
+    },
+    "project_report_agent": {
+      "agent_id": "69a492b2ad5175ca488a2a20",
+      "name": "Project Report Agent",
+      "description": "Generates structured construction progress reports with timeline, budget, and risk tracking",
+      "model": "gpt-4.1",
+      "provider": "openai",
+      "temperature": 0.3,
+      "top_p": 1,
+      "capabilities": {
+        "image_output": false,
+        "voice": false,
+        "file_output": true
+      }
+    }
+  },
+  "rag_ids": {},
+  "schedules": {}
+}
