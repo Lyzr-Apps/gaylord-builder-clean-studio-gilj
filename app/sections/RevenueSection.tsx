@@ -4,7 +4,7 @@ import React, { useState, useCallback, useMemo } from 'react'
 import {
   FiDollarSign, FiTrendingUp, FiTrendingDown, FiArrowUpRight, FiPlus, FiX,
   FiCalendar, FiFilter, FiDownload, FiCheckCircle, FiClock, FiAlertCircle,
-  FiPercent, FiBarChart2, FiPieChart, FiEdit2, FiTrash2
+  FiPercent, FiBarChart2, FiPieChart, FiEdit2, FiTrash2, FiCopy, FiCreditCard
 } from 'react-icons/fi'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
@@ -119,6 +119,14 @@ export default function RevenueSection({ showSample }: RevenueSectionProps) {
     date: '', client: '', property: '', type: 'Sale' as Transaction['type'],
     amount: '', status: 'Pending' as Transaction['status'], method: 'Wire Transfer', notes: ''
   })
+  const [copiedField, setCopiedField] = useState<string | null>(null)
+
+  const copyToClipboard = useCallback((text: string, field: string) => {
+    navigator.clipboard.writeText(text).then(() => {
+      setCopiedField(field)
+      setTimeout(() => setCopiedField(null), 2000)
+    }).catch(() => {})
+  }, [])
 
   // Computed metrics
   const metrics = useMemo(() => {
@@ -213,7 +221,59 @@ export default function RevenueSection({ showSample }: RevenueSectionProps) {
             </Card>
           ))}
         </div>
-        <div className="flex items-center justify-center py-16">
+        {/* Banking Details Card - always visible */}
+        <Card className="border border-border shadow-sm bg-gradient-to-r from-card to-secondary/30">
+          <CardContent className="p-6">
+            <div className="flex items-start gap-4">
+              <div className="w-10 h-10 bg-primary/10 flex items-center justify-center flex-shrink-0">
+                <FiCreditCard size={20} className="text-primary" />
+              </div>
+              <div className="flex-1 space-y-4">
+                <div>
+                  <h3 className="font-serif text-base font-light tracking-wider text-foreground">Payment Collection Details</h3>
+                  <p className="text-xs text-muted-foreground tracking-wider font-light mt-1">Wire transfer information for collecting application revenue</p>
+                </div>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div className="space-y-1">
+                    <p className="text-[10px] tracking-[0.2em] uppercase text-muted-foreground font-light">IBAN</p>
+                    <div className="flex items-center gap-2">
+                      <code className="text-sm tracking-wider font-light text-foreground bg-secondary px-3 py-2 border border-border flex-1 font-mono select-all">
+                        FR76 2823 3000 0129 8467 0824 394
+                      </code>
+                      <button
+                        onClick={() => copyToClipboard('FR7628233000012984670824394', 'iban')}
+                        className="p-2 text-muted-foreground hover:text-primary transition-colors flex-shrink-0"
+                        title="Copy IBAN"
+                      >
+                        {copiedField === 'iban' ? <FiCheckCircle size={16} className="text-emerald-600" /> : <FiCopy size={16} />}
+                      </button>
+                    </div>
+                  </div>
+                  <div className="space-y-1">
+                    <p className="text-[10px] tracking-[0.2em] uppercase text-muted-foreground font-light">BIC / SWIFT</p>
+                    <div className="flex items-center gap-2">
+                      <code className="text-sm tracking-wider font-light text-foreground bg-secondary px-3 py-2 border border-border flex-1 font-mono select-all">
+                        REVOFRP2
+                      </code>
+                      <button
+                        onClick={() => copyToClipboard('REVOFRP2', 'bic')}
+                        className="p-2 text-muted-foreground hover:text-primary transition-colors flex-shrink-0"
+                        title="Copy BIC"
+                      >
+                        {copiedField === 'bic' ? <FiCheckCircle size={16} className="text-emerald-600" /> : <FiCopy size={16} />}
+                      </button>
+                    </div>
+                  </div>
+                </div>
+                <p className="text-[11px] text-muted-foreground tracking-wider font-light">
+                  Share these details with clients for wire transfer payments. All amounts should reference the property name and invoice number.
+                </p>
+              </div>
+            </div>
+          </CardContent>
+        </Card>
+
+        <div className="flex items-center justify-center py-12">
           <p className="text-sm text-muted-foreground tracking-wider font-light">Enable Sample Data to view revenue analytics</p>
         </div>
       </div>
@@ -290,6 +350,58 @@ export default function RevenueSection({ showSample }: RevenueSectionProps) {
           </CardContent>
         </Card>
       </div>
+
+      {/* Banking Details Card */}
+      <Card className="border border-border shadow-sm bg-gradient-to-r from-card to-secondary/30">
+        <CardContent className="p-6">
+          <div className="flex items-start gap-4">
+            <div className="w-10 h-10 bg-primary/10 flex items-center justify-center flex-shrink-0">
+              <FiCreditCard size={20} className="text-primary" />
+            </div>
+            <div className="flex-1 space-y-4">
+              <div>
+                <h3 className="font-serif text-base font-light tracking-wider text-foreground">Payment Collection Details</h3>
+                <p className="text-xs text-muted-foreground tracking-wider font-light mt-1">Wire transfer information for collecting application revenue</p>
+              </div>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div className="space-y-1">
+                  <p className="text-[10px] tracking-[0.2em] uppercase text-muted-foreground font-light">IBAN</p>
+                  <div className="flex items-center gap-2">
+                    <code className="text-sm tracking-wider font-light text-foreground bg-secondary px-3 py-2 border border-border flex-1 font-mono select-all">
+                      FR76 2823 3000 0129 8467 0824 394
+                    </code>
+                    <button
+                      onClick={() => copyToClipboard('FR7628233000012984670824394', 'iban')}
+                      className="p-2 text-muted-foreground hover:text-primary transition-colors flex-shrink-0"
+                      title="Copy IBAN"
+                    >
+                      {copiedField === 'iban' ? <FiCheckCircle size={16} className="text-emerald-600" /> : <FiCopy size={16} />}
+                    </button>
+                  </div>
+                </div>
+                <div className="space-y-1">
+                  <p className="text-[10px] tracking-[0.2em] uppercase text-muted-foreground font-light">BIC / SWIFT</p>
+                  <div className="flex items-center gap-2">
+                    <code className="text-sm tracking-wider font-light text-foreground bg-secondary px-3 py-2 border border-border flex-1 font-mono select-all">
+                      REVOFRP2
+                    </code>
+                    <button
+                      onClick={() => copyToClipboard('REVOFRP2', 'bic')}
+                      className="p-2 text-muted-foreground hover:text-primary transition-colors flex-shrink-0"
+                      title="Copy BIC"
+                    >
+                      {copiedField === 'bic' ? <FiCheckCircle size={16} className="text-emerald-600" /> : <FiCopy size={16} />}
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <p className="text-[11px] text-muted-foreground tracking-wider font-light">
+                Share these details with clients for wire transfer payments. All amounts should reference the property name and invoice number.
+              </p>
+            </div>
+          </div>
+        </CardContent>
+      </Card>
 
       {/* Tabs */}
       <div className="flex gap-1 border-b border-border">
